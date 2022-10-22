@@ -1,0 +1,9 @@
+version: "3"
+services:
+  bankapi-connect:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    command:
+      -  uvicorn rest:app --host 0.0.0.0 --reload

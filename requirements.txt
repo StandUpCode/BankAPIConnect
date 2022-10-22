@@ -1,0 +1,14 @@
+furl
+motor
+pymongo
+httpx
+httpx-auth
+fastapi-utils
+fastapi
+opencv-python-headless
+loguru
+pydantic
+pillow
+python-multipart
+pytz
+uuid

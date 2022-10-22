@@ -28,3 +28,5 @@ RUN set -eux \
 
 # copy project
 COPY . /src/
+
+EXPOSE 8080

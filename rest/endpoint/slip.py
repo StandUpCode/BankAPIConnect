@@ -1,14 +1,15 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
 
 from Config.SCBConfig import SCBConfig
-from Config.KBankConfig import  KBankConfig
-from adapter.model.BankAPI import SCBAPI_Service,KBankAPI_Service
+from adapter.model.BankAPI import SCBAPI_Service
 from utils.imagehandler import ImageHandler
 from utils.slip import SlipQRData
 
 slip_api = APIRouter()
 
 SCBAPI_Service = SCBAPI_Service(SCBConfig())
+
+
 # KBankAPI_Service = KBankAPI_Service(KBankConfig())
 
 
@@ -28,5 +29,3 @@ async def verify_scb(slip_image_file: UploadFile = File(...), ):
         sending_bank_id=slip.payload.sending_bank_id
     )
     print(result)
-
-

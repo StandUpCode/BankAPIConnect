@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 
-import dependency
+from . import dependency
 
 
 async def startup(app: FastAPI):
-    mongo = dependency.inject()
-    app.state.mongo_db = mongo
+
+    app.state.registry = dependency.inject()
 
 
 async def shutdown(app: FastAPI):
-    app.state.mongo_db.close()
+    pass

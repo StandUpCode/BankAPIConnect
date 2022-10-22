@@ -11,4 +11,9 @@ class MongoDB:
         self.client = motor.motor_asyncio.AsyncIOMotorClient(uri)
 
     def getDB(self, DatabaseName: str):
+        self.DatabaseName = DatabaseName
+
         return self.client[DatabaseName]
+
+    def close(self):
+        return self.client.close()

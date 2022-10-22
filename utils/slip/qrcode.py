@@ -90,6 +90,10 @@ class expect_single_qrcode(Exception):
     pass
 
 
+class cannot_detect_qrcode(Exception):
+    pass
+
+
 class SlipQRData(BaseModel):
     payload: QrPayload
     country_code: str
@@ -133,7 +137,10 @@ class SlipQRData(BaseModel):
         qr_inside: List[Decoded] = decode(
             pil_image, symbols=[ZBarSymbol.QRCODE]
         )
-        if len(qr_inside) != 1:
+        print(qr_inside)
+        if len(qr_inside) == 0:
+            raise cannot_detect_qrcode()
+        if len(qr_inside) > 1:
             raise expect_single_qrcode()
 
         qr_data = qr_inside[0].data.decode("UTF-8")

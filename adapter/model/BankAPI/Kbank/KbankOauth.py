@@ -55,7 +55,5 @@ class KBankOAuth2ClientCredentials(OAuth2ClientCredentials):
         )
         # Handle both Access and Bearer tokens
         return (
-            (self.state, token, expires_in)
-            if expires_in
-            else (self.state, token)
+            (self.state, token, expires_in) if expires_in else (self.state, token)
         )

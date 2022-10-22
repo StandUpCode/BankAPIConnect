@@ -26,7 +26,7 @@ class ImageHandler:
     def formfile_to_pillow_image(bytes_image) -> Image:
         logger.info("Processing")
         np_array = np.fromstring(bytes_image, np.uint8)
-        img_np = cv2.imdecode(np_array, cv2.CV_LOAD_IMAGE_COLOR)
+        img_np = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
         image = Image.fromarray(img_np)
         logger.info("Done")
         return image

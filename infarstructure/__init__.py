@@ -1,1 +1,1 @@
-from mongo import MongoDB, MongoDBConfig
+from .mongo import MongoDB, MongoDBConfig

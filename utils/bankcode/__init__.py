@@ -1,1 +1,1 @@
-from bankcode import GetBankCode,GetBankName
+from .bankcode import GetBankCode, AnyBankCode

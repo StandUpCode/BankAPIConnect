@@ -1,3 +1,3 @@
-from slip import QrPayload, SlipQRData
-from bankcode import GetBankName, GetBankCode
-from imagehandler import ImageHandler
+from .bankcode import GetBankCode, AnyBankCode
+from .imagehandler import ImageHandler
+from .slip import QrPayload, SlipQRData

@@ -1,7 +1,8 @@
-from infarstructure.mongo import MongoDB, MongoDBConfig
+from Config import SCBConfig
+from adapter import SCBAPI_Service
+
+from infarstructure import MongoDBConfig, MongoDB
 
 
-async def inject():
-    mongo_db = MongoDB(MongoDBConfig())
-
-    return mongo_db.getDB("SlipVerification")
+def inject():
+    mongo_db = MongoDB(MongoDBConfig()).getDB("SlipVerification")

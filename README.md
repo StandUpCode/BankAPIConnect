@@ -17,7 +17,7 @@ docker-compose -f prod.docker-compose.yml up -d
 
 
 
-://github.com/codustry/thanakan [Thai Bank API Interface]
+
 ----
 ## To Contribute
 - Fork this repository
@@ -30,4 +30,4 @@ MIT
 ---
 Special Thanks [codustry](https://github.com/codustry)
 
-- https
+- https://github.com/codustry/thanakan [Thai Bank API Interface]

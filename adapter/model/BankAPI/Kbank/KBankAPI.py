@@ -8,7 +8,7 @@ from furl import furl
 from httpx._types import CertTypes
 from loguru import logger
 
-from Config.KBankConfig import KBankConfig
+from config.KBankConfig import KBankConfig
 from .KbankModel import KbankSlipVerifyResponse
 from .KbankOauth import KBankOAuth2ClientCredentials
 

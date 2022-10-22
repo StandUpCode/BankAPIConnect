@@ -10,7 +10,7 @@ from loguru import logger
 from pydantic import validate_arguments
 from pydantic.types import constr
 
-from Config.SCBConfig import SCBConfig
+from config.SCBConfig import SCBConfig
 from .SCBModel import (SCBCredentialsSCBResponse, CreateQR30SCBResponse, StatusCode,
                        VerifySCBResponse,
                        TransactionInquirySCBResponse, SCBDeeplinkResponse,

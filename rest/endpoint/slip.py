@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
 
-from Config.SCBConfig import SCBConfig
+from config.SCBConfig import SCBConfig
 from adapter.model.BankAPI import SCBAPI_Service
 from utils.imagehandler import ImageHandler
 from utils.slip import SlipQRData

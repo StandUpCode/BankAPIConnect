@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 
 class SlipVerifyRequest(BaseModel):
-    slip_image:str
+    slip_image: str
 
     class Config:
         schema_extra = {

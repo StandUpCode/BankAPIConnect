@@ -15,8 +15,10 @@
 docker-compose -f prod.docker-compose.yml up -d
 ```
 
-
-
+**Note For Developer**
+- For SCB API Slip Verification can 
+verify only transaction that was create via sandbox and SCBEasy Simulator 
+- Real transaction can't Use with sandbox api
 
 ----
 ## To Contribute

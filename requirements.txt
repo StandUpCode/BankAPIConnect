@@ -7,11 +7,11 @@ httpx
 httpx-auth
 fastapi-utils
 fastapi
-opencv-python-headless==4.6.0.66
+pyzbar
 loguru
 pydantic
 pillow
 python-multipart
 pytz
 uuid
-pyzbar
+

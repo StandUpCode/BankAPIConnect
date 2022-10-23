@@ -5,5 +5,10 @@ services:
       context: .
     ports:
       - "8080:8080"
-    command:
-      -  uvicorn rest:app --host 0.0.0.0 --port=8080
+  
+    env_file:
+      - .env
+    volumes:
+      - ./:/app/
+
+    command: uvicorn app.rest.main:app --host 0.0.0.0 --port 8000

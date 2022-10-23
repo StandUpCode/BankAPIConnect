@@ -1,6 +1,6 @@
 import base64
 import io
-import cv2
+
 import numpy as np
 import requests
 from PIL import Image
@@ -25,14 +25,12 @@ class ImageHandler:
     @staticmethod
     def formfile_to_pillow_image(bytes_image) -> Image:
         logger.info("Processing")
-        np_array = np.fromstring(bytes_image, np.uint8)
-        img_np = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
-        image = Image.fromarray(img_np)
+        image = Image.open(io.BytesIO(bytes_image))
         logger.info("Done")
         return image
 
     @staticmethod
-    def url_to_pillow_image(url_image: str) -> [str, Image]:
+    def url_to_pillow_image(url_image: str) -> Image:
         logger.info("Processing")
         res = requests.get(url_image, allow_redirects=True)
 
@@ -42,15 +40,14 @@ class ImageHandler:
             logger.info(image_format)
 
             if image_format in ImageHandler.supported_image_types:
-                file_type = image_format.split('/')[1].lower()
 
                 image = Image.fromarray(np.frombuffer(res.content, np.uint8))
                 logger.info("Done")
-                return file_type, image
+                return image
 
             else:
                 logger.error("Image Not Support")
-                return None, None
+                return None
         else:
             logger.error("Image Not Fround")
-            return None, None
+            return None

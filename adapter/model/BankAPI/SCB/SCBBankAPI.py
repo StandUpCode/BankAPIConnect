@@ -11,15 +11,16 @@ from pydantic import validate_arguments
 from pydantic.types import constr
 
 from config.SCBConfig import SCBConfig
-from .SCBModel import (SCBCredentialsSCBResponse, CreateQR30SCBResponse, StatusCode,
-                       VerifySCBResponse,
-                       TransactionInquirySCBResponse, SCBDeeplinkResponse,
-                       SCBDeeplinkTransactionResponse)
+from .SCBModel import (
+    SCBCredentialsSCBResponse, CreateQR30SCBResponse,
+    StatusCode, VerifySCBResponse,
+    TransactionInquirySCBResponse, SCBDeeplinkResponse,
+    SCBDeeplinkTransactionResponse)
 from .SCBOauth import SCBOAuth2ClientCredentials
 
 
 class SCBBaseURL(str, Enum):
-    sandbox = "https://api-sandbox.partners.scb/partners/sandbox/"
+    sandbox = "https://api-sandbox.partners.scb/partners/sandbox"
     uat = "https://api-uat.partners.scb/partners/"
     production = "https://api.partners.scb/partners/"
 
@@ -135,17 +136,16 @@ class SCBAPI_Service:
             transaction_ref_id: str,
             sending_bank_id: str,
     ):
-
         headers = {
             "requestUId": uuid.uuid4().hex,
         }
-
         the_furl = (
-                furl("/v1/payment/billpayment/transactions") / transaction_ref_id
+                furl("/v1/payment/billpayment/transactions") / "202210236Z4fJN5ys3UYqsW"
         )
         the_furl.args["sendingBank"] = sending_bank_id
         logger.debug(the_furl.url)
-        r = await self.client.get(the_furl.url, headers=headers)
+        r = self.client_sync.get(the_furl.url, headers=headers)
+        logger.info(r.status_code)
         logger.debug(r.json())
 
         if r.status_code == 200:

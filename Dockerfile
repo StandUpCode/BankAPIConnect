@@ -27,7 +27,7 @@ ENV PATH=/venv/bin:$PATH
 
 
 # set work directory
-WORKDIR /src
+WORKDIR /app
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -49,7 +49,12 @@ FROM ${python}
 COPY --from=compile-image /venv /venv
 
 ENV PATH=/venv/bin:$PATH
+
 # copy project
-COPY . /src/
+
+COPY . /app/
+
 
 EXPOSE 8080
+
+CMD sleep 10

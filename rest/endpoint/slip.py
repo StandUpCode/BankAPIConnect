@@ -29,3 +29,5 @@ async def verify_scb(slip_image_file: UploadFile = File(...), ):
         sending_bank_id=slip.payload.sending_bank_id
     )
     print(result)
+
+    return result

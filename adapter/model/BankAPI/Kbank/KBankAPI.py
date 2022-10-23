@@ -22,7 +22,7 @@ class KBankAPI_Service:
             self,
             config: KBankConfig,
             cert: CertTypes,
-            base_url="https://openapi.kasikornbank.com",
+            base_url="https://openapi.kasikornbank.com/v2",
     ):
         self.consumer_id = config.KBANK_CONSUMER_ID
         self.consumer_secret = config.KBANK_CONSUMER_SECRET

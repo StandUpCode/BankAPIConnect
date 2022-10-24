@@ -11,6 +11,10 @@
 
 ---
 ####  To RUN
+1. Go SCB & Kbank Openapi with link abrove
+2. create .env file from .env.example 
+3. fill enviroment variable with api key from Bank API
+
 ```shell
 docker-compose -f prod.docker-compose.yml up -d
 ```
